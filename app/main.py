@@ -17,7 +17,7 @@ def home():
 
 # GET request endpoint 2
 @app.route("/send", methods=["POST", "GET"])
-def eth_home():
+def send():
     msg = ''
     if 'Message' in request.args.keys():
         msg = request.args['Message']
@@ -32,4 +32,3 @@ if __name__ == "__main__":
     client.on_connect = on_connect
     client.connect(host="broker.hivemq.com", port=1883, keepalive=60)
     client.loop_start()
-    app.run(debug=True)
